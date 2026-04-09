@@ -307,7 +307,7 @@ async function loadFromGitHub() {
   if (!token) { setSyncStatus('No token set', false); return; }
   setSyncStatus('Loading…', null);
   try {
-    const res = await fetch(API, { headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' } });
+    const res = await fetch(API + '?t=' + Date.now(), { headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' } });
     if (res.status === 404) { setSyncStatus('Ready — no data yet', null); return; }
     if (!res.ok) throw new Error(res.status);
     const json = await res.json();
