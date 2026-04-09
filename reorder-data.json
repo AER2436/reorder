@@ -9,6 +9,21 @@
       "onHand": 0,
       "available": 0,
       "minQty": 1,
+      "orderQty": 2,
+      "unitCost": 0,
+      "extCost": 0,
+      "alert": false,
+      "zero": true
+    },
+    {
+      "itemID": "21175",
+      "itemName": "Aztec Print Offset Cane",
+      "itemGroup": "Aids to Living",
+      "vendor": "Alex Orthopedic",
+      "phone": "9726419680",
+      "onHand": 0,
+      "available": 0,
+      "minQty": 1,
       "orderQty": 1,
       "unitCost": 0,
       "extCost": 0,
@@ -707,5 +722,5 @@
     }
   ],
   "struckIds": [],
-  "lastUpdated": "2026-04-09T21:48:53.417Z"
+  "lastUpdated": "2026-04-09T21:50:17.123Z"
 }
