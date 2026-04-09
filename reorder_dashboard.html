@@ -324,17 +324,21 @@ async function loadFromGitHub() {
   }
 }
 
-async function saveToGitHub() {
+async function saveToGitHub(retries = 3) {
   const token = getToken();
   if (!token) { showTokenModal(); return; }
   setSyncStatus('Saving…', null);
   try {
     let sha = null;
-    const check = await fetch(API, { headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' } });
+    const check = await fetch(API + '?t=' + Date.now(), { headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' } });
     if (check.ok) { sha = (await check.json()).sha; }
     const content = btoa(unescape(encodeURIComponent(JSON.stringify(state, null, 2))));
     const body = { message: 'Update reorder data', content, ...(sha ? { sha } : {}) };
     const res = await fetch(API, { method: 'PUT', headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json', 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    if (res.status === 409 && retries > 0) {
+      await new Promise(r => setTimeout(r, 300));
+      return saveToGitHub(retries - 1);
+    }
     if (!res.ok) throw new Error(res.status);
     setSyncStatus('Saved ✓', true);
   } catch(e) {
