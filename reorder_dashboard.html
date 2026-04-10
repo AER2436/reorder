@@ -14,7 +14,10 @@
   --border: #d0dce8; --border-light: #e8eff6; --bg: #f5f8fb; --white: #ffffff;
   --urgent-bg: #fff1f1; --urgent-text: #b91c1c; --urgent-border: #fca5a5;
   --warn-bg: #fffbeb; --warn-border: #fcd34d; --warn-text: #92400e;
-  --success: #059669; --radius: 12px; --radius-sm: 8px;
+  --success: #059669; --success-bg: #f0fdf4; --success-border: #6ee7b7;
+  --freight-ok-bg: #f0fdf4; --freight-ok-text: #065f46; --freight-ok-border: #6ee7b7;
+  --freight-no-bg: #fff7ed; --freight-no-text: #9a3412; --freight-no-border: #fdba74;
+  --radius: 12px; --radius-sm: 8px;
 }
 body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
@@ -52,18 +55,21 @@ input[type="file"] { display: none; }
 
 main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem; }
 
-#token-modal {
+/* Modals */
+.modal-overlay {
   display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5);
   z-index: 200; align-items: center; justify-content: center;
 }
-#token-modal.show { display: flex; }
+.modal-overlay.show { display: flex; }
 .modal-box {
   background: var(--white); border-radius: var(--radius); padding: 2rem;
   width: 480px; max-width: 95vw; box-shadow: 0 20px 60px rgba(0,0,0,0.2);
 }
+.modal-box.narrow { width: 360px; }
 .modal-title { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
 .modal-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6; }
 .modal-sub a { color: var(--blue); }
+.modal-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 6px; display: block; }
 .modal-input {
   width: 100%; border: 1px solid var(--border); border-radius: var(--radius-sm);
   padding: 10px 14px; font-family: 'DM Mono', monospace; font-size: 13px;
@@ -78,8 +84,10 @@ main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem; }
 }
 .modal-btn.primary { background: var(--blue); color: white; border-color: var(--blue); }
 .modal-btn.primary:hover { background: var(--blue-light); }
+.modal-btn.danger { background: var(--urgent-bg); color: var(--urgent-text); border-color: var(--urgent-border); }
 .modal-note { font-size: 12px; color: var(--text-muted); margin-top: 10px; }
 
+/* Drop zone */
 #drop-zone {
   border: 1.5px dashed var(--border); border-radius: var(--radius);
   padding: 4rem 2rem; text-align: center; cursor: pointer;
@@ -95,6 +103,7 @@ main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem; }
 .drop-sub { font-size: 13px; color: var(--text-muted); }
 .drop-sub span { color: var(--blue); font-weight: 500; }
 
+/* Stats */
 #stats-row { display: none; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 2rem; }
 .stat-card { background: var(--white); border: 1px solid var(--border-light); border-radius: var(--radius); padding: 1.25rem 1.5rem; }
 .stat-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 8px; }
@@ -102,17 +111,28 @@ main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem; }
 .stat-value.danger { color: var(--urgent-text); }
 .stat-value.money { color: var(--navy-mid); }
 
-#toolbar { display: none; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
+/* Toolbar */
+#toolbar { display: none; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 10px; }
 .section-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); }
-.toolbar-right { display: flex; align-items: center; gap: 16px; }
+.toolbar-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 .legend { display: flex; gap: 18px; align-items: center; }
 .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); }
 .legend-dot { width: 8px; height: 8px; border-radius: 2px; }
 #show-struck { font-size: 12px; color: var(--text-muted); cursor: pointer; user-select: none; display: flex; align-items: center; gap: 6px; }
+.toolbar-btn {
+  background: var(--white); color: var(--text-mid); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 5px 12px; font-family: 'DM Sans', sans-serif;
+  font-size: 12px; font-weight: 500; cursor: pointer; transition: background 0.15s;
+}
+.toolbar-btn:hover { background: var(--accent2); }
 
+/* Vendor cards */
 #vendor-list { display: flex; flex-direction: column; gap: 10px; }
 .vendor-card { background: var(--white); border: 1px solid var(--border-light); border-radius: var(--radius); overflow: hidden; transition: box-shadow 0.15s; }
 .vendor-card:hover { box-shadow: 0 2px 12px rgba(15,42,74,0.07); }
+.vendor-card.all-struck { opacity: 0.55; }
+.vendor-card.all-struck .vendor-header { background: #f8fafc; }
+
 .vendor-header {
   display: flex; align-items: center; padding: 1rem 1.5rem;
   cursor: pointer; gap: 1rem; user-select: none; transition: background 0.1s;
@@ -127,16 +147,40 @@ main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem; }
 .vendor-info { flex: 1; min-width: 0; }
 .vendor-name { font-size: 15px; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .vendor-contact { font-size: 12px; color: var(--text-muted); margin-top: 2px; font-family: 'DM Mono', monospace; }
-.vendor-right { text-align: right; flex-shrink: 0; }
+.vendor-right { text-align: right; flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
 .vendor-total { font-size: 18px; font-weight: 500; color: var(--navy); font-family: 'DM Mono', monospace; letter-spacing: -0.5px; }
 .vendor-total.no-cost { font-size: 13px; color: var(--text-muted); font-weight: 400; }
-.vendor-count { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
-.chevron { color: var(--text-muted); margin-left: 8px; transition: transform 0.2s; flex-shrink: 0; }
+.vendor-count { font-size: 12px; color: var(--text-muted); }
+
+/* Freight badge */
+.freight-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 9px; border-radius: 5px; font-size: 11px; font-weight: 600;
+  cursor: pointer; transition: opacity 0.15s; border: 1px solid;
+}
+.freight-badge:hover { opacity: 0.8; }
+.freight-badge svg { width: 11px; height: 11px; flex-shrink: 0; }
+.freight-met {
+  background: var(--freight-ok-bg); color: var(--freight-ok-text);
+  border-color: var(--freight-ok-border);
+}
+.freight-unmet {
+  background: var(--freight-no-bg); color: var(--freight-no-text);
+  border-color: var(--freight-no-border);
+}
+.freight-unset {
+  background: var(--accent); color: var(--text-muted);
+  border-color: var(--border); font-weight: 400;
+}
+
+.chevron { color: var(--text-muted); margin-left: 4px; transition: transform 0.2s; flex-shrink: 0; }
 .chevron.open { transform: rotate(180deg); }
 
 .badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
 .badge-urgent { background: var(--urgent-bg); color: var(--urgent-text); border: 1px solid var(--urgent-border); }
+.badge-done { background: var(--success-bg); color: var(--freight-ok-text); border: 1px solid var(--success-border); }
 
+/* Table */
 .item-table-wrap { border-top: 1px solid var(--border-light); overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; font-size: 13px; }
 thead th {
@@ -164,7 +208,7 @@ tbody tr.struck.visible .item-name { text-decoration: line-through; }
   justify-content: center; color: var(--text-muted); transition: all 0.15s; padding: 0;
 }
 .strike-btn:hover { border-color: var(--urgent-border); color: var(--urgent-text); background: var(--urgent-bg); }
-.struck .strike-btn { border-color: var(--success); color: var(--success); background: #f0fdf4; }
+.struck .strike-btn { border-color: var(--success); color: var(--success); background: var(--success-bg); }
 .strike-btn svg { width: 12px; height: 12px; pointer-events: none; }
 
 .order-qty {
@@ -218,7 +262,8 @@ tbody tr.struck.visible .item-name { text-decoration: line-through; }
   </div>
 </header>
 
-<div id="token-modal">
+<!-- Token modal -->
+<div id="token-modal" class="modal-overlay">
   <div class="modal-box">
     <div class="modal-title">GitHub Personal Access Token</div>
     <div class="modal-sub">
@@ -231,6 +276,21 @@ tbody tr.struck.visible .item-name { text-decoration: line-through; }
       <button class="modal-btn primary" onclick="saveToken()">Save token</button>
     </div>
     <div class="modal-note">Token is stored in your browser's localStorage and only ever sent to GitHub's API.</div>
+  </div>
+</div>
+
+<!-- Freight modal -->
+<div id="freight-modal" class="modal-overlay">
+  <div class="modal-box narrow">
+    <div class="modal-title" id="freight-modal-title">Minimum freight</div>
+    <div class="modal-sub">Set the minimum order total required for free or included freight from this vendor.</div>
+    <label class="modal-label">Threshold ($)</label>
+    <input class="modal-input" type="number" id="freight-input" placeholder="e.g. 150" min="0" step="0.01">
+    <div class="modal-actions">
+      <button class="modal-btn danger" onclick="clearFreight()">Clear</button>
+      <button class="modal-btn" onclick="closeFreightModal()">Cancel</button>
+      <button class="modal-btn primary" onclick="saveFreight()">Save</button>
+    </div>
   </div>
 </div>
 
@@ -257,6 +317,7 @@ tbody tr.struck.visible .item-name { text-decoration: line-through; }
   <div id="toolbar">
     <div class="section-title">By vendor</div>
     <div class="toolbar-right">
+      <button class="toolbar-btn" id="collapse-all-btn" onclick="toggleAllVendors()">Collapse all</button>
       <label id="show-struck">
         <input type="checkbox" id="show-struck-cb"> Show struck-off items
       </label>
@@ -279,11 +340,13 @@ const REPO  = 'reorder';
 const PATH  = 'reorder-data.json';
 const API   = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`;
 
-let state = { items: [], struckIds: [], lastUpdated: null };
+let state = { items: [], struckIds: [], freightThresholds: {}, lastUpdated: null };
 let showStruck = false;
+let allExpanded = true;
+let freightEditVendor = null;
 
+// ── Token ──────────────────────────────────────────────────────
 function getToken() { return localStorage.getItem('gh_pat') || ''; }
-
 function showTokenModal() {
   document.getElementById('token-input').value = getToken();
   document.getElementById('token-modal').classList.add('show');
@@ -296,23 +359,67 @@ function saveToken() {
   if (t) { toast('Token saved — loading data…'); loadFromGitHub(); }
 }
 
+// ── Freight modal ──────────────────────────────────────────────
+function openFreightModal(vendor, e) {
+  e.stopPropagation();
+  freightEditVendor = vendor;
+  document.getElementById('freight-modal-title').textContent = vendor;
+  const current = (state.freightThresholds || {})[vendor];
+  document.getElementById('freight-input').value = current != null ? current : '';
+  document.getElementById('freight-modal').classList.add('show');
+  setTimeout(() => document.getElementById('freight-input').focus(), 50);
+}
+function closeFreightModal() {
+  document.getElementById('freight-modal').classList.remove('show');
+  freightEditVendor = null;
+}
+function saveFreight() {
+  const val = parseFloat(document.getElementById('freight-input').value);
+  if (!freightEditVendor) return;
+  if (!state.freightThresholds) state.freightThresholds = {};
+  if (!isNaN(val) && val >= 0) {
+    state.freightThresholds[freightEditVendor] = val;
+    toast(`Freight threshold set to $${val.toFixed(2)} for ${freightEditVendor}`);
+  }
+  closeFreightModal();
+  render();
+  saveToGitHub();
+}
+function clearFreight() {
+  if (!freightEditVendor) return;
+  if (state.freightThresholds) delete state.freightThresholds[freightEditVendor];
+  toast(`Freight threshold cleared for ${freightEditVendor}`);
+  closeFreightModal();
+  render();
+  saveToGitHub();
+}
+// Close modals on overlay click
+document.querySelectorAll('.modal-overlay').forEach(el => {
+  el.addEventListener('click', e => { if (e.target === el) { closeTokenModal(); closeFreightModal(); } });
+});
+
+// ── Sync status ────────────────────────────────────────────────
 function setSyncStatus(msg, ok) {
   const el = document.getElementById('sync-status');
   el.textContent = msg;
   el.className = ok === true ? 'ok' : ok === false ? 'err' : '';
 }
 
+// ── GitHub ─────────────────────────────────────────────────────
 async function loadFromGitHub() {
   const token = getToken();
   if (!token) { setSyncStatus('No token set', false); return; }
   setSyncStatus('Loading…', null);
   try {
-    const res = await fetch(API + '?t=' + Date.now(), { headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' } });
+    const res = await fetch(API + '?t=' + Date.now(), {
+      headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' }
+    });
+    if (res.status === 401) { setSyncStatus('Bad token', false); return; }
     if (res.status === 404) { setSyncStatus('Ready — no data yet', null); return; }
     if (!res.ok) throw new Error(res.status);
     const json = await res.json();
     const data = JSON.parse(atob(json.content.replace(/\n/g, '')));
-    state = data;
+    state = { freightThresholds: {}, struckIds: [], ...data };
     setSyncStatus('Synced ✓', true);
     if (state.lastUpdated) {
       document.getElementById('file-date').textContent = 'Last updated ' + new Date(state.lastUpdated).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
@@ -330,15 +437,22 @@ async function saveToGitHub(retries = 3) {
   setSyncStatus('Saving…', null);
   try {
     let sha = null;
-    const check = await fetch(API + '?t=' + Date.now(), { headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' } });
+    const check = await fetch(API + '?t=' + Date.now(), {
+      headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' }
+    });
     if (check.ok) { sha = (await check.json()).sha; }
     const content = btoa(unescape(encodeURIComponent(JSON.stringify(state, null, 2))));
     const body = { message: 'Update reorder data', content, ...(sha ? { sha } : {}) };
-    const res = await fetch(API, { method: 'PUT', headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json', 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    const res = await fetch(API, {
+      method: 'PUT',
+      headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
     if (res.status === 409 && retries > 0) {
       await new Promise(r => setTimeout(r, 300));
       return saveToGitHub(retries - 1);
     }
+    if (res.status === 401) { setSyncStatus('Bad token', false); return; }
     if (!res.ok) throw new Error(res.status);
     setSyncStatus('Saved ✓', true);
   } catch(e) {
@@ -348,6 +462,7 @@ async function saveToGitHub(retries = 3) {
   }
 }
 
+// ── CSV parsing ────────────────────────────────────────────────
 function parseCSV(text) {
   const lines = text.split('\n').filter(l => l.trim());
   const headers = parseRow(lines[0]);
@@ -367,9 +482,9 @@ function parseRow(line) {
   }
   out.push(cur); return out;
 }
-
 function csvToItems(rows) {
-  return rows.filter(r => (parseInt(r['AvailableQty']) || 0) <= (parseInt(r['MinQty']) || 0))
+  return rows
+    .filter(r => (parseInt(r['AvailableQty']) || 0) <= (parseInt(r['MinQty']) || 0))
     .map(r => {
       const orderQty = parseInt(r['ReorderQty']) || 0;
       const unitCost = parseFloat(r['MostRecentCost']) || 0;
@@ -391,6 +506,7 @@ function csvToItems(rows) {
     });
 }
 
+// ── File handling ──────────────────────────────────────────────
 const dropZone = document.getElementById('drop-zone');
 const fileInput = document.getElementById('file-input');
 dropZone.addEventListener('click', () => fileInput.click());
@@ -407,6 +523,7 @@ function handleFile(file) {
     state.struckIds = (state.struckIds || []).filter(id => newIds.has(id));
     state.items = newItems;
     state.lastUpdated = new Date().toISOString();
+    if (!state.freightThresholds) state.freightThresholds = {};
     document.getElementById('file-date').textContent = file.name + ' · ' + new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     showDashboard();
     render();
@@ -422,16 +539,28 @@ function showDashboard() {
   document.getElementById('toolbar').style.display = 'flex';
 }
 
-function initials(name) {
-  return name.split(/\s+/).slice(0, 2).map(w => w[0] || '').join('').toUpperCase() || '??';
+// ── Collapse all / expand all ──────────────────────────────────
+function toggleAllVendors() {
+  allExpanded = !allExpanded;
+  document.querySelectorAll('.item-table-wrap').forEach(t => t.style.display = allExpanded ? '' : 'none');
+  document.querySelectorAll('.chevron').forEach(c => c.classList.toggle('open', allExpanded));
+  document.getElementById('collapse-all-btn').textContent = allExpanded ? 'Collapse all' : 'Expand all';
 }
 
-function toggleStruck(itemID) {
+// ── Strike off ────────────────────────────────────────────────
+function strikeIcon(isStruck) {
+  return isStruck
+    ? `<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 6l2.5 2.5L10 3"/></svg>`
+    : `<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>`;
+}
+
+function toggleStruck(itemID, e) {
+  e.stopPropagation();
   const idx = state.struckIds.indexOf(itemID);
   if (idx === -1) state.struckIds.push(itemID);
   else state.struckIds.splice(idx, 1);
   const isStruck = state.struckIds.includes(itemID);
-  const tr = document.querySelector(`tr[data-id="${itemID}"]`);
+  const tr = document.querySelector(`tr[data-id="${CSS.escape(itemID)}"]`);
   if (tr) {
     tr.classList.toggle('struck', isStruck);
     tr.classList.toggle('visible', isStruck && showStruck);
@@ -439,15 +568,59 @@ function toggleStruck(itemID) {
     if (btn) btn.innerHTML = strikeIcon(isStruck);
   }
   updateStats();
+  updateVendorCard(itemID);
   saveToGitHub();
 }
 
-function strikeIcon(isStruck) {
-  return isStruck
-    ? `<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 6l2.5 2.5L10 3"/></svg>`
-    : `<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>`;
+function updateVendorCard(itemID) {
+  const item = (state.items || []).find(i => i.itemID === itemID);
+  if (!item) return;
+  const card = document.querySelector(`.vendor-card[data-vendor="${CSS.escape(item.vendor)}"]`);
+  if (!card) return;
+  const struckSet = new Set(state.struckIds);
+  const vItems = (state.items || []).filter(i => i.vendor === item.vendor);
+  const activeItems = vItems.filter(i => !struckSet.has(i.itemID));
+  const allStruck = activeItems.length === 0;
+  card.classList.toggle('all-struck', allStruck);
+  const totalEl = card.querySelector('.vendor-total');
+  const countEl = card.querySelector('.vendor-count');
+  const nameEl  = card.querySelector('.vendor-name');
+  const vendorTotal = activeItems.reduce((s, i) => s + i.extCost, 0);
+  const hasCost = activeItems.some(i => i.unitCost > 0);
+  if (totalEl) { totalEl.textContent = hasCost ? '$' + vendorTotal.toFixed(2) : 'Cost N/A'; totalEl.className = 'vendor-total' + (hasCost ? '' : ' no-cost'); }
+  if (countEl) countEl.textContent = `${activeItems.length} of ${vItems.length} item${vItems.length !== 1 ? 's' : ''} active`;
+  // Update freight badge
+  updateFreightBadge(card, item.vendor, vendorTotal);
+  // Update urgent badge
+  const hasUrgent = activeItems.some(i => i.alert);
+  const urgentBadge = nameEl ? nameEl.querySelector('.badge-urgent') : null;
+  if (urgentBadge) urgentBadge.style.display = hasUrgent ? '' : 'none';
+  const doneBadge = nameEl ? nameEl.querySelector('.badge-done') : null;
+  if (doneBadge) doneBadge.style.display = allStruck ? '' : 'none';
 }
 
+function updateFreightBadge(card, vendor, vendorTotal) {
+  const badge = card.querySelector('.freight-badge');
+  if (!badge) return;
+  const threshold = (state.freightThresholds || {})[vendor];
+  if (threshold == null) {
+    badge.className = 'freight-badge freight-unset';
+    badge.innerHTML = truckIcon() + ' Set freight min';
+  } else if (vendorTotal >= threshold) {
+    badge.className = 'freight-badge freight-met';
+    badge.innerHTML = truckIcon() + ` Freight met ($${vendorTotal.toFixed(2)} / $${threshold.toFixed(2)})`;
+  } else {
+    const remaining = threshold - vendorTotal;
+    badge.className = 'freight-badge freight-unmet';
+    badge.innerHTML = truckIcon() + ` $${remaining.toFixed(2)} to freight min`;
+  }
+}
+
+function truckIcon() {
+  return `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="9" height="8" rx="1"/><path d="M10 6h2.5L14 8.5V12h-4V6z"/><circle cx="4" cy="13" r="1.2"/><circle cx="12" cy="13" r="1.2"/></svg>`;
+}
+
+// ── Stats ──────────────────────────────────────────────────────
 function updateStats() {
   const struckSet = new Set(state.struckIds);
   const active    = (state.items || []).filter(i => !struckSet.has(i.itemID));
@@ -465,6 +638,11 @@ document.getElementById('show-struck-cb').addEventListener('change', function() 
   document.querySelectorAll('tr.struck').forEach(tr => tr.classList.toggle('visible', showStruck));
 });
 
+// ── Render ─────────────────────────────────────────────────────
+function initials(name) {
+  return name.split(/\s+/).slice(0, 2).map(w => w[0] || '').join('').toUpperCase() || '??';
+}
+
 function render() {
   const struckSet = new Set(state.struckIds || []);
   const items     = state.items || [];
@@ -480,26 +658,43 @@ function render() {
   document.getElementById('empty').style.display = 'none';
 
   Object.keys(byVendor).sort().forEach(vendor => {
-    const vItems     = byVendor[vendor];
+    const vItems      = byVendor[vendor];
     const activeItems = vItems.filter(i => !struckSet.has(i.itemID));
     const vendorTotal = activeItems.reduce((s, i) => s + i.extCost, 0);
     const hasCost     = activeItems.some(i => i.unitCost > 0);
     const hasUrgent   = activeItems.some(i => i.alert);
+    const allStruck   = activeItems.length === 0;
+    const threshold   = (state.freightThresholds || {})[vendor];
+
+    let freightClass, freightLabel;
+    if (threshold == null) {
+      freightClass = 'freight-unset'; freightLabel = truckIcon() + ' Set freight min';
+    } else if (vendorTotal >= threshold) {
+      freightClass = 'freight-met'; freightLabel = truckIcon() + ` Freight met ($${vendorTotal.toFixed(2)} / $${threshold.toFixed(2)})`;
+    } else {
+      freightClass = 'freight-unmet'; freightLabel = truckIcon() + ` $${(threshold - vendorTotal).toFixed(2)} to freight min`;
+    }
 
     const card = document.createElement('div');
-    card.className = 'vendor-card';
+    card.className = 'vendor-card' + (allStruck ? ' all-struck' : '');
+    card.dataset.vendor = vendor;
 
     const hdr = document.createElement('div');
     hdr.className = 'vendor-header';
     hdr.innerHTML = `
       <div class="vendor-icon">${initials(vendor)}</div>
       <div class="vendor-info">
-        <div class="vendor-name">${vendor}${hasUrgent ? ' <span class="badge badge-urgent">Urgent</span>' : ''}</div>
+        <div class="vendor-name">
+          ${vendor}
+          ${hasUrgent ? '<span class="badge badge-urgent">Urgent</span>' : ''}
+          ${allStruck ? '<span class="badge badge-done">All ordered</span>' : ''}
+        </div>
         <div class="vendor-contact">${vItems[0].phone || 'No phone on file'}</div>
       </div>
       <div class="vendor-right">
         <div class="vendor-total ${hasCost ? '' : 'no-cost'}">${hasCost ? '$' + vendorTotal.toFixed(2) : 'Cost N/A'}</div>
         <div class="vendor-count">${activeItems.length} of ${vItems.length} item${vItems.length !== 1 ? 's' : ''} active</div>
+        <button class="freight-badge ${freightClass}" onclick="openFreightModal('${vendor.replace(/'/g,"\\'")}', event)">${freightLabel}</button>
       </div>
       <svg class="chevron open" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg>`;
 
@@ -521,7 +716,7 @@ function render() {
           ${vItems.map(i => {
             const isStruck = struckSet.has(i.itemID);
             return `<tr data-id="${i.itemID}" class="${i.alert ? 'urgent-row' : i.zero ? 'warn-row' : ''}${isStruck ? ' struck' + (showStruck ? ' visible' : '') : ''}">
-              <td><button class="strike-btn" onclick="toggleStruck('${i.itemID}')" title="${isStruck ? 'Restore item' : 'Mark as ordered / not needed'}">${strikeIcon(isStruck)}</button></td>
+              <td><button class="strike-btn" onclick="toggleStruck('${i.itemID.replace(/'/g,"\\'")}', event)" title="${isStruck ? 'Restore item' : 'Mark as ordered / not needed'}">${strikeIcon(isStruck)}</button></td>
               <td class="mono">${i.itemID}</td>
               <td><div class="item-name">${i.itemName}</div><div class="item-group">${i.itemGroup}</div></td>
               <td class="r mono">${i.onHand}</td>
@@ -547,6 +742,7 @@ function render() {
   });
 }
 
+// ── Toast ──────────────────────────────────────────────────────
 let toastTimer;
 function toast(msg, isError = false) {
   const el = document.getElementById('toast');
@@ -556,6 +752,7 @@ function toast(msg, isError = false) {
   toastTimer = setTimeout(() => el.className = '', 3500);
 }
 
+// ── Init ───────────────────────────────────────────────────────
 getToken() ? loadFromGitHub() : setSyncStatus('No GitHub token — click to set up', false);
 </script>
 </body>
