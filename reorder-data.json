@@ -1,6 +1,7 @@
 {
   "freightThresholds": {
-    "Medline": 500
+    "Medline": 500,
+    "Texas Medical": 500
   },
   "struckIds": [
     "PM1031F EA",
