@@ -286,21 +286,6 @@
       "zero": true
     },
     {
-      "itemID": "6066 case",
-      "itemName": "Step Stool w/ Hand Rail case of 2",
-      "itemGroup": "Aids to Living",
-      "vendor": "No Vendor on File",
-      "phone": "",
-      "onHand": 0,
-      "available": 0,
-      "minQty": 1,
-      "orderQty": 2,
-      "unitCost": 41.8,
-      "extCost": 83.6,
-      "alert": false,
-      "zero": true
-    },
-    {
       "itemID": "6216",
       "itemName": "Bacterial/Viral Filter",
       "itemGroup": "CPAP/BiLevel Supplies",
@@ -391,21 +376,6 @@
       "zero": true
     },
     {
-      "itemID": "8200-R case",
-      "itemName": "NOVA TOILET SAFETY RAILS case of 2",
-      "itemGroup": "Bathroom Aids",
-      "vendor": "No Vendor on File",
-      "phone": "",
-      "onHand": 0,
-      "available": 0,
-      "minQty": 2,
-      "orderQty": 2,
-      "unitCost": 0,
-      "extCost": 0,
-      "alert": false,
-      "zero": true
-    },
-    {
       "itemID": "90763432",
       "itemName": "HD Articulating Elevating Leg Rest",
       "itemGroup": "Wheelchair Accessories",
@@ -454,8 +424,8 @@
       "itemID": "E0147 - US-PC2-PDL",
       "itemName": "U STEP II WALKER Press-Down-Left",
       "itemGroup": "Ambulatory Aids",
-      "vendor": "No Vendor on File",
-      "phone": "",
+      "vendor": "In Step Mobility",
+      "phone": "8005587837",
       "onHand": 1,
       "available": 1,
       "minQty": 2,
@@ -469,8 +439,8 @@
       "itemID": "E0147 - US-PC2-PDR",
       "itemName": "U STEP II WALKER Press-Down-right",
       "itemGroup": "Ambulatory Aids",
-      "vendor": "No Vendor on File",
-      "phone": "",
+      "vendor": "In Step Mobility",
+      "phone": "8005587837",
       "onHand": 1,
       "available": 1,
       "minQty": 2,
@@ -830,9 +800,7 @@
     "PM1031F EA",
     "G1-200X4",
     "MDS86410W54B CS",
-    "6066 case",
-    "6216",
-    "8200-R case"
+    "6216"
   ],
-  "lastUpdated": "2026-04-10T13:49:51.969Z"
+  "lastUpdated": "2026-04-10T14:07:19.879Z"
 }
