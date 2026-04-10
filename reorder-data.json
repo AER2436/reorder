@@ -1,4 +1,14 @@
 {
+  "freightThresholds": {
+    "Medline": 500
+  },
+  "struckIds": [
+    "PM1031F EA",
+    "G1-200X4",
+    "MDS86410W54B CS",
+    "6216",
+    "35AH BATTERY INT"
+  ],
   "items": [
     {
       "itemID": "1116750",
@@ -795,13 +805,6 @@
       "alert": false,
       "zero": true
     }
-  ],
-  "struckIds": [
-    "PM1031F EA",
-    "G1-200X4",
-    "MDS86410W54B CS",
-    "6216",
-    "35AH BATTERY INT"
   ],
   "lastUpdated": "2026-04-10T14:09:16.383Z"
 }
