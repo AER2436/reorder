@@ -721,6 +721,8 @@
       "zero": true
     }
   ],
-  "struckIds": [],
+  "struckIds": [
+    "21005"
+  ],
   "lastUpdated": "2026-04-09T21:50:17.123Z"
 }
