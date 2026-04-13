@@ -7,9 +7,7 @@
     "PM1031F EA",
     "6216",
     "35AH BATTERY INT",
-    "MDS808200F3BK",
-    "UP120 pack",
-    "UP120 PREVAIL EACH"
+    "MDS808200F3BK"
   ],
   "items": [
     {
@@ -26,81 +24,6 @@
       "extCost": 0,
       "alert": true,
       "zero": false
-    },
-    {
-      "itemID": "16 Chariot IV XTC",
-      "itemName": "K0004 High Strength Lightweight",
-      "itemGroup": "Wheelchairs - Manual",
-      "vendor": "Texas Medical",
-      "phone": "8007536291",
-      "onHand": 0,
-      "available": 0,
-      "minQty": 1,
-      "orderQty": 1,
-      "unitCost": 290.59,
-      "extCost": 290.59,
-      "alert": false,
-      "zero": true
-    },
-    {
-      "itemID": "18 Chariot IV FA",
-      "itemName": "K0004 High Strength Lightweight",
-      "itemGroup": "Wheelchairs - Manual",
-      "vendor": "Texas Medical",
-      "phone": "8007536291",
-      "onHand": 0,
-      "available": 0,
-      "minQty": 1,
-      "orderQty": 1,
-      "unitCost": 159,
-      "extCost": 159,
-      "alert": false,
-      "zero": true
-    },
-    {
-      "itemID": "18 Chariot IV XTC",
-      "itemName": "K0004 High Strength Lightweight",
-      "itemGroup": "Wheelchairs - Manual",
-      "vendor": "Texas Medical",
-      "phone": "8007536291",
-      "onHand": 0,
-      "available": 0,
-      "minQty": 1,
-      "orderQty": 1,
-      "unitCost": 309,
-      "extCost": 309,
-      "alert": false,
-      "zero": true
-    },
-    {
-      "itemID": "20 Chariot IV XTC",
-      "itemName": "K0004 High Strength Lightweight",
-      "itemGroup": "Wheelchairs - Manual",
-      "vendor": "Texas Medical",
-      "phone": "8007536291",
-      "onHand": 0,
-      "available": 0,
-      "minQty": 1,
-      "orderQty": 1,
-      "unitCost": 290.59,
-      "extCost": 290.59,
-      "alert": false,
-      "zero": true
-    },
-    {
-      "itemID": "20 WHEELCHAIR",
-      "itemName": "K0003 Lt Wt Wheelchair",
-      "itemGroup": "Wheelchairs - Manual",
-      "vendor": "Drive Medical",
-      "phone": "8003712266",
-      "onHand": 0,
-      "available": 0,
-      "minQty": 4,
-      "orderQty": 4,
-      "unitCost": 139,
-      "extCost": 556,
-      "alert": false,
-      "zero": true
     },
     {
       "itemID": "2601-3-1816",
@@ -598,21 +521,6 @@
       "zero": true
     },
     {
-      "itemID": "MDS808200F3BK",
-      "itemName": "Ultralight Transport Chair Black",
-      "itemGroup": "Wheelchairs - Manual",
-      "vendor": "Medline",
-      "phone": "8176718457",
-      "onHand": 0,
-      "available": 0,
-      "minQty": 1,
-      "orderQty": 1,
-      "unitCost": 114,
-      "extCost": 114,
-      "alert": false,
-      "zero": true
-    },
-    {
       "itemID": "NVP1LA",
       "itemName": "Nova Micro Pillows Mask Lrg",
       "itemGroup": "CPAP/BiLevel Supplies",
@@ -793,51 +701,6 @@
       "zero": true
     },
     {
-      "itemID": "UP120 CASE",
-      "itemName": "A4554 PREVAIL UP120 CASE",
-      "itemGroup": "Incontinence Products",
-      "vendor": "Texas Medical",
-      "phone": "8007536291",
-      "onHand": 0,
-      "available": -1,
-      "minQty": 0,
-      "orderQty": 0,
-      "unitCost": 26.3,
-      "extCost": 0,
-      "alert": true,
-      "zero": false
-    },
-    {
-      "itemID": "UP120 pack",
-      "itemName": "A4554 UP120 PACK OF 15",
-      "itemGroup": "Incontinence Products",
-      "vendor": "H.D. SMITH",
-      "phone": "8007998326",
-      "onHand": 0,
-      "available": -8,
-      "minQty": 0,
-      "orderQty": 0,
-      "unitCost": 0,
-      "extCost": 0,
-      "alert": true,
-      "zero": false
-    },
-    {
-      "itemID": "UP120 PREVAIL EACH",
-      "itemName": "A4554 UNDERPADS EA",
-      "itemGroup": "Incontinence Products",
-      "vendor": "H.D. SMITH",
-      "phone": "8007998326",
-      "onHand": 0,
-      "available": -120,
-      "minQty": 0,
-      "orderQty": 0,
-      "unitCost": 0.21917,
-      "extCost": 0,
-      "alert": true,
-      "zero": false
-    },
-    {
       "itemID": "VIT1LA",
       "itemName": "VITERA LG FF MASK w/hdgr",
       "itemGroup": "CPAP/BiLevel Supplies",
@@ -853,5 +716,5 @@
       "zero": true
     }
   ],
-  "lastUpdated": "2026-04-13T18:14:31.367Z"
+  "lastUpdated": "2026-04-13T18:19:14.125Z"
 }
