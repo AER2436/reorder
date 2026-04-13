@@ -237,6 +237,21 @@
       "zero": false
     },
     {
+      "itemID": "400EVF115",
+      "itemName": "A7031 SM/MD EVORA FULL FACE SEAL",
+      "itemGroup": "CPAP/BiLevel Supplies",
+      "vendor": "No Vendor on File",
+      "phone": "",
+      "onHand": 3,
+      "available": 1,
+      "minQty": 3,
+      "orderQty": 2,
+      "unitCost": 20.5,
+      "extCost": 41,
+      "alert": false,
+      "zero": false
+    },
+    {
       "itemID": "42655",
       "itemName": "A6533 20-30 SHEER & SOFT TH CT",
       "itemGroup": "Compression Stockings",
@@ -383,6 +398,21 @@
       "orderQty": 2,
       "unitCost": 153.8,
       "extCost": 307.6,
+      "alert": false,
+      "zero": true
+    },
+    {
+      "itemID": "7710P",
+      "itemName": "E0110 - NOVA FOREARM CRUTCHES",
+      "itemGroup": "Ambulatory Aids",
+      "vendor": "Texas Medical",
+      "phone": "8007536291",
+      "onHand": 0,
+      "available": 0,
+      "minQty": 1,
+      "orderQty": 1,
+      "unitCost": 38.75,
+      "extCost": 38.75,
       "alert": false,
       "zero": true
     },
@@ -633,7 +663,7 @@
       "vendor": "Texas Medical",
       "phone": "8007536291",
       "onHand": 0,
-      "available": -7,
+      "available": -5,
       "minQty": 12,
       "orderQty": 20,
       "unitCost": 22.45,
@@ -647,8 +677,8 @@
       "itemGroup": "Ambulatory Aids",
       "vendor": "Texas Medical",
       "phone": "8007536291",
-      "onHand": 21,
-      "available": 13,
+      "onHand": 20,
+      "available": 12,
       "minQty": 16,
       "orderQty": 4,
       "unitCost": 16.76,
@@ -700,6 +730,51 @@
       "extCost": 0,
       "alert": false,
       "zero": true
+    },
+    {
+      "itemID": "PV513",
+      "itemName": "T4527 Prevail Pullups lrg",
+      "itemGroup": "Incontinence Products",
+      "vendor": "No Vendor on File",
+      "phone": "",
+      "onHand": 54,
+      "available": -162,
+      "minQty": 0,
+      "orderQty": 0,
+      "unitCost": 0.48556,
+      "extCost": 0,
+      "alert": true,
+      "zero": false
+    },
+    {
+      "itemID": "PV513 CASE",
+      "itemName": "T4527 Prevail Pullups lrg",
+      "itemGroup": "Incontinence Products",
+      "vendor": "No Vendor on File",
+      "phone": "",
+      "onHand": 0,
+      "available": -2,
+      "minQty": 0,
+      "orderQty": 0,
+      "unitCost": 34.12,
+      "extCost": 0,
+      "alert": true,
+      "zero": false
+    },
+    {
+      "itemID": "PV513 PACK",
+      "itemName": "T4527 Prevail Pullups lrg",
+      "itemGroup": "Incontinence Products",
+      "vendor": "Texas Medical",
+      "phone": "8007536291",
+      "onHand": 3,
+      "available": -9,
+      "minQty": 0,
+      "orderQty": 0,
+      "unitCost": 8.74,
+      "extCost": 0,
+      "alert": true,
+      "zero": false
     },
     {
       "itemID": "SLN1LA",
@@ -792,6 +867,51 @@
       "zero": true
     },
     {
+      "itemID": "UP120 CASE",
+      "itemName": "A4554 PREVAIL UP120 CASE",
+      "itemGroup": "Incontinence Products",
+      "vendor": "Texas Medical",
+      "phone": "8007536291",
+      "onHand": 0,
+      "available": -1,
+      "minQty": 0,
+      "orderQty": 0,
+      "unitCost": 26.3,
+      "extCost": 0,
+      "alert": true,
+      "zero": false
+    },
+    {
+      "itemID": "UP120 pack",
+      "itemName": "A4554 UP120 PACK OF 15",
+      "itemGroup": "Incontinence Products",
+      "vendor": "H.D. SMITH",
+      "phone": "8007998326",
+      "onHand": 0,
+      "available": -8,
+      "minQty": 0,
+      "orderQty": 0,
+      "unitCost": 0,
+      "extCost": 0,
+      "alert": true,
+      "zero": false
+    },
+    {
+      "itemID": "UP120 PREVAIL EACH",
+      "itemName": "A4554 UNDERPADS EA",
+      "itemGroup": "Incontinence Products",
+      "vendor": "H.D. SMITH",
+      "phone": "8007998326",
+      "onHand": 0,
+      "available": -120,
+      "minQty": 0,
+      "orderQty": 0,
+      "unitCost": 0.21917,
+      "extCost": 0,
+      "alert": true,
+      "zero": false
+    },
+    {
       "itemID": "VIT1LA",
       "itemName": "VITERA LG FF MASK w/hdgr",
       "itemGroup": "CPAP/BiLevel Supplies",
@@ -807,5 +927,5 @@
       "zero": true
     }
   ],
-  "lastUpdated": "2026-04-10T14:09:16.383Z"
+  "lastUpdated": "2026-04-13T14:45:34.939Z"
 }
