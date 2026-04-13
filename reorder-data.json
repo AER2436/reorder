@@ -7,9 +7,7 @@
     "PM1031F EA",
     "6216",
     "35AH BATTERY INT",
-    "MDS808200F3BK",
-    "PV513",
-    "PV513 CASE"
+    "MDS808200F3BK"
   ],
   "items": [
     {
@@ -19,7 +17,7 @@
       "vendor": "Respironics",
       "phone": "8003456443",
       "onHand": 0,
-      "available": -1,
+      "available": -2,
       "minQty": 0,
       "orderQty": 0,
       "unitCost": 0,
@@ -198,14 +196,29 @@
       "itemGroup": "Ambulatory Aids",
       "vendor": "Texas Medical",
       "phone": "8007536291",
-      "onHand": 3,
-      "available": 3,
+      "onHand": 2,
+      "available": 2,
       "minQty": 6,
-      "orderQty": 3,
+      "orderQty": 4,
       "unitCost": 4.95,
-      "extCost": 14.850000000000001,
+      "extCost": 19.8,
       "alert": false,
       "zero": false
+    },
+    {
+      "itemID": "4008GA",
+      "itemName": "Nova Mobility Bag Enchanted Garden",
+      "itemGroup": "",
+      "vendor": "Texas Medical",
+      "phone": "8007536291",
+      "onHand": 1,
+      "available": 0,
+      "minQty": 1,
+      "orderQty": 1,
+      "unitCost": 10.95,
+      "extCost": 10.95,
+      "alert": false,
+      "zero": true
     },
     {
       "itemID": "400BRE113",
@@ -241,8 +254,8 @@
       "itemID": "400EVF115",
       "itemName": "A7031 SM/MD EVORA FULL FACE SEAL",
       "itemGroup": "CPAP/BiLevel Supplies",
-      "vendor": "No Vendor on File",
-      "phone": "",
+      "vendor": "Fisher & Paykel",
+      "phone": "2143568623",
       "onHand": 3,
       "available": 1,
       "minQty": 3,
@@ -311,6 +324,21 @@
       "extCost": 24.99,
       "alert": false,
       "zero": true
+    },
+    {
+      "itemID": "50012BK",
+      "itemName": "Cane tips 1 1/2in Black",
+      "itemGroup": "",
+      "vendor": "Texas Medical",
+      "phone": "8007536291",
+      "onHand": 1,
+      "available": 1,
+      "minQty": 2,
+      "orderQty": 1,
+      "unitCost": 2.75,
+      "extCost": 2.75,
+      "alert": false,
+      "zero": false
     },
     {
       "itemID": "6216",
@@ -538,36 +566,6 @@
       "zero": true
     },
     {
-      "itemID": "G1-200X4",
-      "itemName": "COMMODE CASE",
-      "itemGroup": "Bathroom Aids",
-      "vendor": "Medline",
-      "phone": "8176718457",
-      "onHand": 1,
-      "available": 1,
-      "minQty": 2,
-      "orderQty": 2,
-      "unitCost": 84.85,
-      "extCost": 169.7,
-      "alert": false,
-      "zero": false
-    },
-    {
-      "itemID": "HD8884719010H",
-      "itemName": "SPIROMETER 4000ML",
-      "itemGroup": "HME - Misc",
-      "vendor": "Medline",
-      "phone": "8176718457",
-      "onHand": 3,
-      "available": 3,
-      "minQty": 4,
-      "orderQty": 1,
-      "unitCost": 2.96,
-      "extCost": 2.96,
-      "alert": false,
-      "zero": false
-    },
-    {
       "itemID": "LITH ION BATTERY",
       "itemName": "E2397 LITHIUM ION BATTERY",
       "itemGroup": "HME - Misc",
@@ -580,21 +578,6 @@
       "unitCost": 0,
       "extCost": 0,
       "alert": true,
-      "zero": false
-    },
-    {
-      "itemID": "MDS808200F3B",
-      "itemName": "Ultralight Transport Chair Blue",
-      "itemGroup": "Wheelchairs - Manual",
-      "vendor": "Medline",
-      "phone": "8176718457",
-      "onHand": 1,
-      "available": 1,
-      "minQty": 3,
-      "orderQty": 2,
-      "unitCost": 95,
-      "extCost": 190,
-      "alert": false,
       "zero": false
     },
     {
@@ -628,21 +611,6 @@
       "zero": true
     },
     {
-      "itemID": "MDS86410W54B CS",
-      "itemName": "ADULT WALKER W/WHEELS",
-      "itemGroup": "Ambulatory Aids",
-      "vendor": "Medline",
-      "phone": "8176718457",
-      "onHand": 0,
-      "available": 0,
-      "minQty": 2,
-      "orderQty": 2,
-      "unitCost": 71.33,
-      "extCost": 142.66,
-      "alert": false,
-      "zero": true
-    },
-    {
       "itemID": "NVP1LA",
       "itemName": "Nova Micro Pillows Mask Lrg",
       "itemGroup": "CPAP/BiLevel Supplies",
@@ -664,7 +632,7 @@
       "vendor": "Texas Medical",
       "phone": "8007536291",
       "onHand": 0,
-      "available": -5,
+      "available": -6,
       "minQty": 12,
       "orderQty": 20,
       "unitCost": 22.45,
@@ -731,51 +699,6 @@
       "extCost": 0,
       "alert": false,
       "zero": true
-    },
-    {
-      "itemID": "PV513",
-      "itemName": "T4527 Prevail Pullups lrg",
-      "itemGroup": "Incontinence Products",
-      "vendor": "No Vendor on File",
-      "phone": "",
-      "onHand": 54,
-      "available": -162,
-      "minQty": 0,
-      "orderQty": 0,
-      "unitCost": 0.48556,
-      "extCost": 0,
-      "alert": true,
-      "zero": false
-    },
-    {
-      "itemID": "PV513 CASE",
-      "itemName": "T4527 Prevail Pullups lrg",
-      "itemGroup": "Incontinence Products",
-      "vendor": "No Vendor on File",
-      "phone": "",
-      "onHand": 0,
-      "available": -2,
-      "minQty": 0,
-      "orderQty": 0,
-      "unitCost": 34.12,
-      "extCost": 0,
-      "alert": true,
-      "zero": false
-    },
-    {
-      "itemID": "PV513 PACK",
-      "itemName": "T4527 Prevail Pullups lrg",
-      "itemGroup": "Incontinence Products",
-      "vendor": "Texas Medical",
-      "phone": "8007536291",
-      "onHand": 3,
-      "available": -9,
-      "minQty": 0,
-      "orderQty": 0,
-      "unitCost": 8.74,
-      "extCost": 0,
-      "alert": true,
-      "zero": false
     },
     {
       "itemID": "SLN1LA",
@@ -928,5 +851,5 @@
       "zero": true
     }
   ],
-  "lastUpdated": "2026-04-13T14:45:34.939Z"
+  "lastUpdated": "2026-04-13T18:14:31.367Z"
 }
